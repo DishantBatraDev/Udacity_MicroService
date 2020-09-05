@@ -1,6 +1,6 @@
-import cors from 'cors';
 import express from 'express';
 import {sequelize} from './sequelize';
+import cors from 'cors';
 
 import {IndexRouter} from './controllers/v0/index.router';
 

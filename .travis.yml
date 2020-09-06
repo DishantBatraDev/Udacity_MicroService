@@ -23,7 +23,7 @@ matrix:
           - 13
         Services: docker
         before_script:
-          - cd udagram-front-end
+          - cd udagram-frontend
         script:
           - docker build -t udagram-frontend .
           - docker tag udagram-frontend dishantbatra92/udagram-frontend:latest

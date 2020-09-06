@@ -1,10 +1,8 @@
 matrix:
     include:
       - language: node_js
-        node_js:
-            - 13
-        services:
-            -docker
+        node_js: 13
+        services: docker
         before_script:
           - cd udagram-feed-api
           - npm install
@@ -20,10 +18,8 @@ matrix:
           - docker push dishantbatra92/udagram-api
 
       - language: node_js
-        node_js:
-            - 13
-        services:
-            -docker
+        node_js: 13
+        services: docker
         before_script:
         - cd udagram-front-end
         script:
@@ -34,10 +30,8 @@ matrix:
         - docker push dishantbatra92/udagram-frontend
   
      - language: node_js
-        node_js:
-            - 13
-        services:
-            -docker
+        node_js: 13
+        services: docker
         before_script:
         - cd udagram-reverse-proxy
         script:
@@ -48,10 +42,8 @@ matrix:
         - docker push dishantbatra92/reverseproxy
 
     - language: node_js
-        node_js:
-            - 13
-        services:
-            -docker
+        node_js: 13
+        services: docker
         before_script:
         - cd udagram-user-api
         - npm install

@@ -12,11 +12,11 @@ matrix:
           - npm run build --prod
           - cd ./www
           - docker --version # print the version for logging
-          - docker build -t udagram-api --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg  POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg URL=${URL} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg=ACCESS_KEY_ID=${ACCESS_KEY_ID}  --build-arg=SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY} .
-          - docker tag udagram-api dishantbatra92/udagram-api:latest
+          - docker build -t udagram-feed-api --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg  POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg URL=${URL} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg=ACCESS_KEY_ID=${ACCESS_KEY_ID}  --build-arg=SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY} .
+          - docker tag udagram-feed-api dishantbatra92/udagram-feed-api:latest
         after_success:
           - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          - docker push dishantbatra92/udagram-api
+          - docker push dishantbatra92/udagram-feed-api
   
       - language: node_js
         node_js: 
@@ -55,10 +55,10 @@ matrix:
           - npm run build --prod
           - cd ./www
           - docker --version # print the version for logging
-          - docker build -t udagram-api --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg  POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg URL=${URL} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg=ACCESS_KEY_ID=${ACCESS_KEY_ID}  --build-arg=SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY} .
-          - docker tag udagram-api dishantbatra92/udagram-api:latest
+          - docker build -t udagram-user-api --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg  POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg URL=${URL} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg=ACCESS_KEY_ID=${ACCESS_KEY_ID}  --build-arg=SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY} .
+          - docker tag udagram-user-api dishantbatra92/udagram-user-api:latest
         after_success:
           - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          - docker push dishantbatra92/udagram-api
+          - docker push dishantbatra92/udagram-user-api
   
   
